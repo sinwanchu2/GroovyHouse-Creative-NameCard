@@ -56,12 +56,12 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
         }
 
-        /* 長身且帶 Gradient Shadow 嘅純白色漸變分隔線 */
+        /* 加強版純白漸變發光線（更光、更出） */
         .gradient-divider {
             width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
-            box-shadow: 0 1px 12px rgba(255, 255, 255, 0.4);
+            height: 1.5px; /* 稍微加粗一點點令質感更實 */
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.5); /* 雙重強光投影，令條線勁 Sharp 勁有光感 */
         }
 
         /* 初始彈入動畫 */
@@ -93,7 +93,7 @@
             <h2 class="text-[11px] uppercase tracking-[0.25em] text-gray-200 font-extralight">GroovyHouse Creative</h2>
         </div>
 
-        <!-- 純白色長身且帶 Gradient Shadow 嘅分隔線 -->
+        <!-- 加強版純白發光分隔線 -->
         <div class="gradient-divider mb-7"></div>
 
         <!-- 姓名與 Job Title -->
