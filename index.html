@@ -1,8 +1,3 @@
-冇問題！我幫你將分隔線加長咗（由原本嘅短線變成橫跨卡片兩側、更有大器感嘅長線），同埋為條線加入咗 Gradient Shadow（漸變陰影特效）——條線嘅兩端會向兩邊漸變消失，中間帶有柔和嘅發光投影，望落去極具高級感！
-
-你可以直接複製以下最新嘅完整程式碼去覆蓋 index.html：
-HTML
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,12 +56,12 @@ HTML
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
         }
 
-        /* 長身且帶有 Gradient Shadow（兩端漸變淡、帶柔和投影）嘅分隔線 */
+        /* 長身且帶 Gradient Shadow 嘅純白色漸變分隔線 */
         .gradient-divider {
             width: 100%;
             height: 1px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0) 100%);
-            box-shadow: 0 1px 10px rgba(255, 255, 255, 0.15);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
+            box-shadow: 0 1px 12px rgba(255, 255, 255, 0.4);
         }
 
         /* 初始彈入動畫 */
@@ -98,7 +93,7 @@ HTML
             <h2 class="text-[11px] uppercase tracking-[0.25em] text-gray-200 font-extralight">GroovyHouse Creative</h2>
         </div>
 
-        <!-- 長身且帶 Gradient Shadow 嘅分隔線 -->
+        <!-- 純白色長身且帶 Gradient Shadow 嘅分隔線 -->
         <div class="gradient-divider mb-7"></div>
 
         <!-- 姓名與 Job Title -->
