@@ -62,7 +62,7 @@
             width: 80%;
             height: 1px;
             background-color: rgba(255, 255, 255, 0.5);
-            margin: 0 auto 28px auto;
+            margin: 0 auto 24px auto; /* 微調底距 */
         }
 
         .sharp-divider::before {
@@ -110,12 +110,13 @@
    <!-- 主卡片容器 -->
     <div class="w-full max-w-sm glass-card rounded-[2.8rem] px-8 py-10 text-center text-white relative z-10 animate-entrance">
         
-        <!-- Company Logo 與 Company Name -->
-        <div class="mb-6">
-            <div class="w-60 h-24 mx-auto mb-2 flex items-center justify-center overflow-hidden opacity-90">
+        <!-- Company Logo 與 Company Name (修改點：兩者距離排近) -->
+        <div class="mb-4">
+            <div class="w-60 h-24 mx-auto flex items-center justify-center overflow-hidden opacity-90">
                 <img src="logo.png" alt="Company Logo" class="w-full h-full object-contain">
             </div>
-            <h2 class="text-[11px] uppercase tracking-[0.25em] text-gray-200 font-extralight">GroovyHouse Creative</h2>
+            <!-- 修改點：將 mb-2 改為 -mt-2，令文字緊貼 Logo -->
+            <h2 class="text-[11px] uppercase tracking-[0.25em] text-gray-200 font-extralight -mt-2">GroovyHouse Creative</h2>
         </div>
 
         <!-- 實色白色 + 左右尖頭分隔線 -->
@@ -129,46 +130,49 @@
             </div>
         </div>
 
-        <!-- 按鈕群組 -->
-        <div class="space-y-3.5 mb-8">
-            <!-- WhatsApp, Call, Email 3個純 Icon 按鈕並排置中 -->
+        <!-- 按鈕群組 (修改點：圓形 Icon Box，上下排開) -->
+        <div class="space-y-4 mb-8"> <!-- 將 space-y-3.5 改為 space-y-4，增加 icon 間距 -->
+            <!-- 上方：WhatsApp, Call, Email 3個圓形 Icon 按鈕並排置中 -->
             <div class="flex items-center justify-center gap-4">
-                <!-- WhatsApp Icon -->
+                <!-- WhatsApp Icon (修改點：rounded-full) -->
                 <a href="https://wa.me/85296026777" target="_blank" title="WhatsApp"
-                   class="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-emerald-600/90 text-white text-base rounded-2xl transition-all duration-300 border border-white/15 shadow-md hover:scale-110">
+                   class="w-14 h-14 flex items-center justify-center bg-white/10 hover:bg-emerald-600/90 text-white text-xl rounded-full transition-all duration-300 border border-white/15 shadow-md hover:scale-110">
                     <i class="fa-brands fa-whatsapp"></i>
                 </a>
 
-                <!-- Call Icon -->
+                <!-- Call Icon (修改點：rounded-full) -->
                 <a href="tel:+85296026777" title="Call"
-                   class="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/25 text-white text-sm rounded-2xl transition-all duration-300 border border-white/15 shadow-md hover:scale-110">
+                   class="w-14 h-14 flex items-center justify-center bg-white/10 hover:bg-white/25 text-white text-lg rounded-full transition-all duration-300 border border-white/15 shadow-md hover:scale-110">
                     <i class="fa-solid fa-phone"></i>
                 </a>
 
-                <!-- Email Icon -->
+                <!-- Email Icon (修改點：rounded-full) -->
                 <a href="mailto:suki@groovyhousecreative.com" title="Email"
-                   class="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/25 text-white text-sm rounded-2xl transition-all duration-300 border border-white/15 shadow-md hover:scale-110">
+                   class="w-14 h-14 flex items-center justify-center bg-white/10 hover:bg-white/25 text-white text-lg rounded-full transition-all duration-300 border border-white/15 shadow-md hover:scale-110">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
             </div>
 
-            <!-- Portfolio PDF 下載按鈕 -->
-            <button onclick="downloadPortfolioPDF()" 
-                    class="w-full py-3.5 px-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white text-xs font-light tracking-wide rounded-2xl transition-all duration-300 hover:scale-[1.02] flex items-center justify-between group border border-white/10">
-                <div class="flex items-center gap-3">
-                    <div class="w-7 h-7 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-300">
-                        <i class="fa-solid fa-file-pdf text-xs"></i>
+            <!-- 下方：Portfolio 與 vCard 按鈕 -->
+            <div class="space-y-3.5">
+                <!-- Portfolio PDF 下載按鈕 -->
+                <button onclick="downloadPortfolioPDF()" 
+                        class="w-full py-3.5 px-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white text-xs font-light tracking-wide rounded-2xl transition-all duration-300 hover:scale-[1.02] flex items-center justify-between group border border-white/10">
+                    <div class="flex items-center gap-3">
+                        <div class="w-7 h-7 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-300">
+                            <i class="fa-solid fa-file-pdf text-xs"></i>
+                        </div>
+                        <span>GroovyHouse Creative Portfolio</span>
                     </div>
-                    <span>GroovyHouse Creative Portfolio</span>
-                </div>
-                <i class="fa-solid fa-download text-[10px] text-gray-300"></i>
-            </button>
+                    <i class="fa-solid fa-download text-[10px] text-gray-300"></i>
+                </button>
 
-            <!-- 儲存聯絡人按鈕 (vCard) -->
-            <button onclick="downloadVCard()" 
-                    class="w-full py-3.5 bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white text-xs font-light tracking-wide rounded-2xl transition-all duration-300 shadow-md hover:scale-[1.02] flex items-center justify-center gap-2 border border-white/10">
-                <i class="fa-solid fa-address-book text-sm"></i> Save Contact
-            </button>
+                <!-- 儲存聯絡人按鈕 (vCard) -->
+                <button onclick="downloadVCard()" 
+                        class="w-full py-3.5 bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white text-xs font-light tracking-wide rounded-2xl transition-all duration-300 shadow-md hover:scale-[1.02] flex items-center justify-center gap-2 border border-white/10">
+                    <i class="fa-solid fa-address-book text-sm"></i> Save Contact
+                </button>
+            </div>
         </div>
 
         <!-- 頁尾版權 -->
