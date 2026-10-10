@@ -36,16 +36,6 @@
             object-fit: cover;
         }
 
-        /* 黑色半透明遮罩 */
-        .bg-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-
         /* 玻璃擬態卡片 */
         .glass-card {
             background: rgba(255, 255, 255, 0.06);
@@ -164,7 +154,7 @@ END:VCARD`;
             const pdfUrl = 'GroovyHouseCreative_Portfolio2026.pdf'; 
             const link = document.createElement('a');
             link.href = pdfUrl;
-            link.setAttribute('download', 'Chu_Sin_Wan_Portfolio.pdf');
+            link.setAttribute('download', 'GroovyHouseCreative_Portfolio2026.pdf');
             link.setAttribute('target', '_blank');
             document.body.appendChild(link);
             link.click();
