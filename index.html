@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chu Sin Wan | GroovyHouse Creative</title>
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 FontAwesome 圖示 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入 Google Fonts: Plus Jakarta Sans (特別加載 200 極幼與 300 幼字重) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 300; /* 全局預設用幼身字體 */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 背景圖片設定區域 */
+        .bg-image-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .bg-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 黑色半透明遮罩 */
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* 玻璃擬態卡片 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        /* 初始彈入動畫 */
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-entrance {
+            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 relative">
+
+    <!-- 背景容器：圖片 + 遮罩 -->
+    <div class="bg-image-container">
+        <!-- 記得上載 background.jpg 到 GitHub 後，可以將這裏改為 "background.jpg" -->
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80" alt="Background Image">
+        <div class="bg-overlay"></div>
+    </div>
+
+    <!-- 主卡片容器 -->
+    <div class="w-full max-w-sm glass-card rounded-[2.8rem] px-8 py-10 text-center text-white relative z-10 animate-entrance">
+        
+        <!-- Company Logo 與 Company Name -->
+        <div class="mb-8">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center shadow-inner overflow-hidden p-2 backdrop-blur-sm">
+                <!-- 記得上載 logo.png 到 GitHub 後，可以將這裏改為 "logo.png" -->
+                <img src="https://cdn-icons-png.flaticon.com/512/3291/3291695.png" alt="Company Logo" class="w-full h-full object-contain opacity-90">
+            </div>
+            <h2 class="text-[11px] uppercase tracking-[0.25em] text-gray-300 font-extralight">GroovyHouse Creative</h2>
+        </div>
+
+        <!-- 姓名與 Job Title (使用極幼體 font-light / font-extralight) -->
+        <div class="mb-8">
+            <h1 class="text-2xl font-light tracking-wide mb-2 text-white">Chu Sin Wan</h1>
+            <div class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/10 text-white/90 text-xs font-light tracking-widest backdrop-blur-sm">
+                Digital & Motion Specialist
+            </div>
+        </div>
+
+        <!-- 按鈕群組 (全部採用幼身字體) -->
+        <div class="space-y-3.5 mb-8">
+            <!-- WhatsApp 按鈕 -->
+            <a href="https://wa.me/85296026777" target="_blank" 
+               class="flex items-center justify-center gap-2 w-full py-3.5 px-4 bg-emerald-600/90 hover:bg-emerald-500 text-white text-xs font-light tracking-wide rounded-2xl transition-all duration-300 shadow-md hover:scale-[1.02]">
+                <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
+            </a>
+
+            <!-- Call & Email 按鈕 -->
+            <div class="grid grid-cols-2 gap-3">
+                <a href="tel:+85296026777" 
+                   class="flex items-center justify-center gap-2 py-3.5 px-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white text-xs font-light tracking-wide rounded-2xl transition-all duration-300 border border-white/10 hover:scale-[1.02]">
+                    <i class="fa-solid fa-phone text-xs"></i> Call
+                </a>
+                <a href="mailto:suki@groovyhousecreative.com" 
+                   class="flex items-center justify-center gap-2 py-3.5 px-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white text-xs font-light tracking-wide rounded-2xl transition-all duration-300 border border-white/10 hover:scale-[1.02]">
+                    <i class="fa-solid fa-envelope text-xs"></i> Email
+                </a>
+            </div>
+
+            <!-- Portfolio PDF 下載按鈕 -->
+            <button onclick="downloadPortfolioPDF()" 
+                    class="w-full py-3.5 px-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white text-xs font-light tracking-wide rounded-2xl transition-all duration-300 hover:scale-[1.02] flex items-center justify-between group">
+                <div class="flex items-center gap-3">
+                    <div class="w-7 h-7 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-300">
+                        <i class="fa-solid fa-file-pdf text-xs"></i>
+                    </div>
+                    <span>GroovyHouse Creative Portfolio</span>
+                </div>
+                <i class="fa-solid fa-download text-[10px] text-gray-300"></i>
+            </button>
+
+            <!-- 儲存聯絡人按鈕 (vCard) -->
+            <button onclick="downloadVCard()" 
+                    class="w-full py-3.5 bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white text-xs font-light tracking-wide rounded-2xl transition-all duration-300 shadow-md hover:scale-[1.02] flex items-center justify-center gap-2 border border-white/10">
+                <i class="fa-solid fa-address-book text-sm"></i> Save Contact
+            </button>
+        </div>
+
+        <!-- 頁尾版權 -->
+        <p class="text-[10px] text-gray-400 font-extralight tracking-widest">© 2026 GroovyHouse Creative. All Rights Reserved.</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function downloadVCard() {
+            const vCardData = 
+`BEGIN:VCARD
+VERSION:3.0
+FN:Chu Sin Wan
+TITLE:Digital & Motion Specialist
+ORG:GroovyHouse Creative
+TEL;TYPE=CELL:+85296026777
+EMAIL:suki@groovyhousecreative.com
+END:VCARD`;
+
+            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'Chu_Sin_Wan.vcf');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function downloadPortfolioPDF() {
+            const pdfUrl = 'portfolio.pdf'; 
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.setAttribute('download', 'Chu_Sin_Wan_Portfolio.pdf');
+            link.setAttribute('target', '_blank');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
