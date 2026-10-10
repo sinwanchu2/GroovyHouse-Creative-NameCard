@@ -63,40 +63,15 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
         }
 
-        /* 實色白色 + 左右尖頭 (Sharp Edges) 分隔線 */
+        /* 兩端自然收尖嘅半透明白線 (利用 CSS Gradient 實現純尖效果) */
         .sharp-divider {
-            position: relative;
             width: 80%;
             height: 1px;
-            background-color: rgba(255, 255, 255, 0.4);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
             margin: 24px auto 24px auto; 
         }
 
-        .sharp-divider::before {
-            content: '';
-            position: absolute;
-            left: -5px;
-            top: 0;
-            width: 0;
-            height: 0;
-            border-top: 0.5px solid transparent;
-            border-bottom: 0.5px solid transparent;
-            border-right: 5px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .sharp-divider::after {
-            content: '';
-            position: absolute;
-            right: -5px;
-            top: 0;
-            width: 0;
-            height: 0;
-            border-top: 0.5px solid transparent;
-            border-bottom: 0.5px solid transparent;
-            border-left: 5px solid rgba(255, 255, 255, 0.5);
-        }
-
-        /* 卡片整體彈入動畫（優雅流暢嘅 0.9s） */
+        /* 卡片整體彈入動畫 */
         @keyframes cardEntrance {
             from { opacity: 0; transform: translateY(22px) scale(0.96); }
             to { opacity: 1; transform: translateY(0) scale(1); }
@@ -145,7 +120,7 @@
             <h2 class="text-[11px] uppercase tracking-[0.25em] text-gray-200 font-extralight -mt-2">GroovyHouse Creative</h2>
         </div>
 
-        <!-- 實色白色 + 左右尖頭分隔線 -->
+        <!-- 兩端自然收尖嘅半透明白線 -->
         <div class="sharp-divider fade-in-up delay-2"></div>
 
         <!-- 姓名與 Job Title -->
