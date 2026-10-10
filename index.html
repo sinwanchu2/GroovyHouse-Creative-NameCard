@@ -96,27 +96,27 @@
             border-left: 5px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* 卡片整體彈入動畫 */
+        /* 卡片整體彈入動畫（加快至 0.7s） */
         @keyframes cardEntrance {
-            from { opacity: 0; transform: translateY(25px) scale(0.96); }
+            from { opacity: 0; transform: translateY(20px) scale(0.97); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
         .animate-entrance {
-            animation: cardEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: cardEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* 元素順序漸顯動畫類別 (Staggered Animations) */
+        /* 更快、更緊密重疊嘅漸顯動畫類別 */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(15px);
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.35s; }
-        .delay-3 { animation-delay: 0.5s; }
-        .delay-4 { animation-delay: 0.65s; }
-        .delay-5 { animation-delay: 0.8s; }
+        .delay-1 { animation-delay: 0.05s; }
+        .delay-2 { animation-delay: 0.12s; }
+        .delay-3 { animation-delay: 0.18s; }
+        .delay-4 { animation-delay: 0.25s; }
+        .delay-5 { animation-delay: 0.32s; }
 
         @keyframes fadeInUp {
             to {
@@ -158,8 +158,8 @@
 
         <!-- 按鈕群組 -->
         <div class="space-y-4 mb-8">
-            <!-- 3個圓形 Icon 按鈕並排置中 (加大下方留白 mb-5，令同 portfolio 距離更多空間) -->
-            <div class="flex items-center justify-center gap-4 mb-5 fade-in-up delay-4">
+            <!-- 3個圓形 Icon 按鈕並排置中 (再加大下方留白 mb-7，令 portfolio 隔更遠) -->
+            <div class="flex items-center justify-center gap-4 mb-7 fade-in-up delay-4">
                 <!-- WhatsApp Icon -->
                 <a href="https://wa.me/85296026777" target="_blank" title="WhatsApp"
                    class="w-14 h-14 flex items-center justify-center bg-white/10 hover:bg-emerald-600 text-white text-xl rounded-full transition-all duration-300 border border-white/15 shadow-lg hover:scale-110 hover:shadow-emerald-500/30">
