@@ -1,3 +1,8 @@
+呢度已經幫你將你提供嘅最新程式碼入面整合咗之前講過嘅 Playfair Display 高級襯線字型，並且完美套用落個名（Suki Chu）度，令個名展現出同你之前截圖相似嘅優雅藝術感！
+
+你可以直接複製以下完整嘅程式碼覆蓋你嘅 index.html：
+HTML
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +13,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 FontAwesome 圖示 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 引入 Google Fonts: Plus Jakarta Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <!-- 引入 Google Fonts: Plus Jakarta Sans 同埋 Playfair Display (高級襯線字體) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -18,6 +23,11 @@
             padding: 0;
             height: 100vh;
             overflow: hidden;
+        }
+
+        /* 專為名字而設嘅高級襯線字型類別 */
+        .serif-name {
+            font-family: 'Playfair Display', serif;
         }
 
         /* 黑色半透明遮罩 */
@@ -68,7 +78,7 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-4 relative">
 
-    <!-- 背景容器：對應你上載嘅 background.png -->
+    <!-- 背景容器 -->
     <div class="bg-image-container">
         <img src="new_background.png" alt="Background Image">
         <div class="bg-overlay"></div>
@@ -79,17 +89,15 @@
         
         <!-- Company Logo 與 Company Name -->
         <div class="mb-8">
-            <!-- Logo 容器修改點：移除 bg-white/10, border, shadow-inner, p-2, backdrop-blur-sm -->
             <div class="w-60 h-24 mx-auto mb-2 flex items-center justify-center overflow-hidden opacity-90">
-                <!-- 假設你上載嘅係 logo.png (透明背景 PNG) -->
                 <img src="logo.png" alt="Company Logo" class="w-full h-full object-contain">
             </div>
             <h2 class="text-[11px] uppercase tracking-[0.25em] text-gray-200 font-extralight">GroovyHouse Creative</h2>
         </div>
 
-        <!-- 姓名與 Job Title -->
+        <!-- 姓名 (套用 serif-name 高級襯線字) 與 Job Title -->
         <div class="mb-8">
-            <h1 class="text-2xl font-light tracking-wide mb-2 text-white">Suki Chu</h1>
+            <h1 class="text-3xl serif-name font-normal tracking-wide mb-2 text-white">Suki Chu</h1>
             <div class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/10 text-white/90 text-xs font-light tracking-widest backdrop-blur-sm">
                 Digital & Motion Specialist
             </div>
@@ -155,14 +163,13 @@ END:VCARD`;
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'Chu_Sin_Wan.vcf');
+            link.setAttribute('download', 'Suki_Chu.vcf');
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         }
 
         function downloadPortfolioPDF() {
-            // 對應你上載嘅真實 PDF 檔名
             const pdfUrl = 'GroovyHouseCreative_Portfolio2026.pdf'; 
             const link = document.createElement('a');
             link.href = pdfUrl;
