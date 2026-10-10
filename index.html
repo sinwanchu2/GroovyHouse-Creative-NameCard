@@ -56,12 +56,39 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
         }
 
-        /* 加強版純白漸變發光線（更光、更出） */
-        .gradient-divider {
-            width: 100%;
-            height: 1.5px; /* 稍微加粗一點點令質感更實 */
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.5); /* 雙重強光投影，令條線勁 Sharp 勁有光感 */
+        /* 實色白色線 + 左右尖頭 (Sharp Edges) */
+        .sharp-divider {
+            position: relative;
+            width: 80%; /* 控制線嘅長度，唔好太盡顯得細緻 */
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.5); /* 實色白線，無 Glow 無 Shadow */
+            margin: 0 auto 28px auto; /* 居中並留返底距 */
+        }
+
+        /* 左邊尖頭 (使用偽元素畫三角形) */
+        .sharp-divider::before {
+            content: '';
+            position: absolute;
+            left: -5px; /* 向左移 5px 貼住條線 */
+            top: 0;
+            width: 0;
+            height: 0;
+            border-top: 0.5px solid transparent; /* 高度要同條線一樣 */
+            border-bottom: 0.5px solid transparent;
+            border-right: 5px solid rgba(255, 255, 255, 0.5); /* 三角形指向左 */
+        }
+
+        /* 右邊尖頭 */
+        .sharp-divider::after {
+            content: '';
+            position: absolute;
+            right: -5px; /* 向右移 5px 貼住條線 */
+            top: 0;
+            width: 0;
+            height: 0;
+            border-top: 0.5px solid transparent;
+            border-bottom: 0.5px solid transparent;
+            border-left: 5px solid rgba(255, 255, 255, 0.5); /* 三角形指向右 */
         }
 
         /* 初始彈入動畫 */
@@ -93,8 +120,8 @@
             <h2 class="text-[11px] uppercase tracking-[0.25em] text-gray-200 font-extralight">GroovyHouse Creative</h2>
         </div>
 
-        <!-- 加強版純白發光分隔線 -->
-        <div class="gradient-divider mb-7"></div>
+        <!-- 實色白色 + 左右尖頭分隔線 -->
+        <div class="sharp-divider"></div>
 
         <!-- 姓名與 Job Title -->
         <div class="mb-8">
